@@ -10,8 +10,9 @@ export class AuthGuard implements CanActivate {
   constructor(public authService: AuthService, private alertify: AlertifyService,
     private router:Router) { }
   canActivate():  boolean {
-    if(this.authService.loggedIn())
-   { return true;}
+    if(this.authService.loggedIn()) { 
+      return true;
+    }
    this.alertify.error("access denied");
    this.router.navigate(['/home']);
   }
